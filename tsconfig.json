@@ -29,7 +29,10 @@
       ],
       "*": [
         "types/*"
-      ]
+      ],
+      "fetch": [
+        "node_modules/ember-fetch"
+      ],
     }
   },
   "include": [

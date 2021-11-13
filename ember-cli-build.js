@@ -6,6 +6,15 @@ module.exports = function (defaults) {
   let app = new EmberApp(defaults, {
     'ember-cli-babel': {
       enableTypeScriptTransform: true,
+      presets: ['@babel/preset-typescript'],
+      plugins: [
+        [
+          '@babel/plugin-transform-typescript',
+          {
+            allowDeclareFields: true,
+          },
+        ],
+      ],
     },
   });
 
