@@ -11,12 +11,11 @@ export default class ApplicationAdapter extends Adapter {
 
   getRequest(type) {
     const url = `${this.host}/${this.namespace}`;
+    const fields = ['id', ...type.attributes.keys()];
     const options = {
       method: 'POST',
       body: JSON.stringify({
-        arguments: {
-          fields: Array.from(type.attributes.keys()),
-        },
+        arguments: { fields },
         method: `${type.modelName}-get`,
       }),
       headers: {
