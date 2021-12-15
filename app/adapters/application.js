@@ -5,11 +5,11 @@ export default class ApplicationAdapter extends Adapter {
   namespace = 'transmission/rpc';
   sessionId = null;
 
-  findAll(store, type) {
+  async findAll(store, type) {
     return this.ajax(type);
   }
 
-  getRequest(type) {
+  async getRequest(type) {
     const url = `${this.host}/${this.namespace}`;
     const fields = ['id', ...type.attributes.keys()];
     const options = {
