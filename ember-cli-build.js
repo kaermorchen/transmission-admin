@@ -17,21 +17,6 @@ module.exports = function (defaults) {
         'swap-vertical',
       ],
     },
-    postcssOptions: {
-      compile: {
-        plugins: [
-          {
-            module: require('postcss-import'),
-          },
-          {
-            module: require('tailwindcss'),
-            options: {
-              config: './app/styles/tailwind.config.js',
-            },
-          },
-        ],
-      },
-    },
     'ember-cli-babel': {
       enableTypeScriptTransform: true,
       presets: ['@babel/preset-typescript'],
