@@ -1,21 +1,16 @@
 <div class="relative min-h-screen md:flex text-basic">
+  <div class="flex flex-col w-64 h-screen px-4 py-8 bg-white border-r dark:bg-gray-800 dark:border-gray-600">
+    <h2 class="text-xl font-semibold text-gray-800 dark:text-white">Transmission Admin</h2>
 
-  <div class="flex justify-between md:hidden">
-    <a href="#" class="block p-4 font-bold">Transmission Admin</a>
-
-    <button class="p-4 focus:outline-none" type="button">
-      <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-    </button>
-  </div>
-
-  <div class="sidebar w-64 space-y-6 py-7 px-2 absolute inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out">
-    <nav>
-      <a href="#" class="block py-2.5 px-4 rounded transition duration-200">
-        Home
-      </a>
-    </nav>
+    <div class="flex flex-col justify-between flex-1 mt-6">
+      <nav>
+        <MenuItem
+          @route="settings"
+          @name="Settings"
+          @icon="cog"
+        />
+      </nav>
+    </div>
   </div>
 
   <div class="flex-1">
