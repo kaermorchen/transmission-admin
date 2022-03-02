@@ -6,31 +6,17 @@ module.exports = function (defaults) {
   let app = new EmberApp(defaults, {
     'ember-mdi': {
       icons: [
-        'download',
-        'upload',
-        'check',
-        'play',
-        'pause',
         'alert',
+        'check',
         'close-circle',
+        'cog',
         'database-search',
+        'download',
+        'pause',
+        'play',
         'swap-vertical',
+        'upload',
       ],
-    },
-    postcssOptions: {
-      compile: {
-        plugins: [
-          {
-            module: require('postcss-import'),
-          },
-          {
-            module: require('tailwindcss'),
-            options: {
-              config: './app/styles/tailwind.config.js',
-            },
-          },
-        ],
-      },
     },
     'ember-cli-babel': {
       enableTypeScriptTransform: true,
