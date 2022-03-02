@@ -1,5 +1,4 @@
 'use strict';
-// located in <app root>/config/tailwind/
 
 const path = require('path');
 
@@ -10,7 +9,14 @@ const relevantFilesGlob = '**/*.{html,js,ts,hbs,gjs,gts}';
 module.exports = {
   content: [path.join(appEntry, relevantFilesGlob)],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        light: '#E5E7EB',
+        secondary: '#374151',
+        dark: '#1F2937',
+        primary: '#2563EB',
+      },
+    },
   },
   plugins: [],
 };
