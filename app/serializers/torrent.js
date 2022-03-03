@@ -1,10 +1,10 @@
 import ApplicationSerializer from './application';
 
 export default class TorrentSerializer extends ApplicationSerializer {
-  normalizeResponse(store, primaryModelClass, payload, id, requestType) {
-    payload.arguments = payload.arguments.torrents;
+  normalizeArrayResponse(store, primaryModelClass, payload, id, requestType) {
+    payload = payload.arguments.torrents;
 
-    return super.normalizeResponse(
+    return super.normalizeArrayResponse(
       store,
       primaryModelClass,
       payload,

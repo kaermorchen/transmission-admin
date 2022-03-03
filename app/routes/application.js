@@ -5,6 +5,6 @@ export default class ApplicationRoute extends Route {
   @service store;
 
   model() {
-    return this.store.findAll('session');
+    return this.store.queryRecord('session', {});
   }
 }
