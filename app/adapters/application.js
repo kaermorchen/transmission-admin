@@ -6,28 +6,35 @@ export default class ApplicationAdapter extends Adapter {
   namespace = 'transmission/rpc';
   sessionId = null;
   requiredFields = false;
+  method = null;
 
   async findAll(store, type) {
     return this.ajax(type);
   }
 
+  async queryRecord(store, type /*, query */) {
+    return this.ajax(type);
+  }
+
   async getRequest(type) {
     const url = `${this.host}/${this.namespace}`;
-    const args = {};
-    const method = `${type.modelName}-get`;
+    const body = { arguments: {} };
 
     if (this.requiredFields) {
-      const fields = ['id'];
+      body.arguments.fields = ['id'];
 
       type.eachAttribute((key, meta) => {
-        fields.push(transformKey(key, meta.options.keyType));
+        body.arguments.fields.push(transformKey(key, meta.options.keyType));
       });
-      args.fields = fields;
+    }
+
+    if (this.method) {
+      body.method = this.method;
     }
 
     const options = {
       method: 'POST',
-      body: JSON.stringify({ arguments: args, method }),
+      body: JSON.stringify(body),
       headers: {
         'X-Transmission-Session-Id': this.sessionId,
       },
